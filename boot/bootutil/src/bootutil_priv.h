@@ -30,7 +30,6 @@
 
 #include <string.h>
 
-#include "sysflash/sysflash.h"
 
 #include <flash_map_backend/flash_map_backend.h>
 

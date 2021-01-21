@@ -25,6 +25,7 @@
 #include "bootutil_priv.h"
 #include "swap_priv.h"
 #include "bootutil/bootutil_log.h"
+#include "flash_map_backend/flash_map_backend.h"
 
 #include "mcuboot_config/mcuboot_config.h"
 
@@ -175,6 +176,9 @@ boot_status_internal_off(const struct boot_status *bs, int elem_sz)
 int
 boot_slots_compatible(struct boot_loader_state *state)
 {
+#ifdef FOTA_USING_ABUP
+		return 1;
+#endif
     size_t num_sectors_primary;
     size_t num_sectors_secondary;
     size_t sz0, sz1;
